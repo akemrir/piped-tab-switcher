@@ -1,0 +1,7 @@
+{
+  "name": "ruby_interface",
+  "description": "Native backend for rofi tab switcher.",
+  "path": "/home/akemrir/build/manual/rofi-tab-switcher/rubyface.rb",
+  "type": "stdio",
+  "allowed_extensions": [ "@rofi.tab.switcher" ]
+}
