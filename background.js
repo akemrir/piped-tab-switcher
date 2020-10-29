@@ -1,17 +1,17 @@
-// var port = chrome.runtime.connectNative("bash_interface");
-var port = chrome.runtime.connectNative("ruby_interface");
+// var port = browser.runtime.connectNative("bash_interface");
+var port = browser.runtime.connectNative("ruby_interface");
 
 port.onMessage.addListener((response) => {
   console.log("Received: ", response);
   if (response != "") {
-    chrome.tabs.get(parseInt(response.id)).then(raiseTab, onError);
+    browser.tabs.get(parseInt(response.id)).then(raiseTab, onError);
   }
 });
 
 // function portDisconnectListener(port) {
 //   console.warn(port);
-//   console.warn(chrome.runtime.lastError);
-//   console.warn(chrome.runtime.lastError);
+//   console.warn(browser.runtime.lastError);
+//   console.warn(browser.runtime.lastError);
 //   console.warn(port.error);
 // }
 // port.onDisconnect.addListener(portDisconnectListener);
@@ -22,13 +22,13 @@ port.onMessage.addListener((response) => {
 //   }
 // });
 
-// function onError(error) {
-//   console.log(error);
-// }
+function onError(error) {
+  console.error(error);
+}
 
 const getTabMenu = () => {
   return new Promise((resolve, reject) => {
-    chrome.tabs.query({}, (tabs) => {
+    browser.tabs.query({}, (tabs) => {
       const menu = {}
       for (const tab of tabs) {
         const key = `${tab.title} ${tab.url} ${tab.id}`
@@ -40,12 +40,12 @@ const getTabMenu = () => {
 }
 
 function raiseTab(tab) {
-  chrome.tabs.update(tab.id, { active: true });
-  chrome.windows.update(tab.windowId, { focused: true });
+  browser.tabs.update(tab.id, { active: true });
+  browser.windows.update(tab.windowId, { focused: true });
 }
 
 function sendTabList(tabs) {
-  chrome.windows.getCurrent().then(function (win) {
+  browser.windows.getCurrent().then(function (win) {
 
     var tabdata = tabs.map((t) => {
       return {
@@ -62,10 +62,10 @@ function sendTabList(tabs) {
   });
 }
 
-chrome.commands.onCommand.addListener(function (command) {
+browser.commands.onCommand.addListener(function (command) {
   if (command == "switch-tab") {
     console.log("Querying tabs");
-    // chrome.tabs.query({}).then(sendTabList, onError);
-    port.postMessage(getTabMenu());
+    browser.tabs.query({}).then(sendTabList, onError);
+    // port.postMessage(getTabMenu());
   }
 });
