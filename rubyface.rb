@@ -31,7 +31,7 @@ while size = $stdin.read(4).unpack("I")[0]
   result = `echo -e \"#{dmenu_options}\" | dmenu -l 10 -i -p "TAB: "`.strip
   child = tabs.detect { |t| t.option == result }
 
-  unless child.active
+  if child && !child.active
     message = { id: child.id }.to_json
     $stdout << [message.size].pack("I") << message
     $stdout.flush
