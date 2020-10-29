@@ -12,9 +12,11 @@ resources/mozilla
 resources/chromium
 
 TODO
-porządki w plikach
-generowanie tych native odpowiednio
-obsługa chrome
-makefile budujące/instalujące
-makefile budujące rozszerzenia
-konta na chrome/mozilla żeby móc oficjalnie wgrywać je
+[V] porządki w plikach
+[o] generowanie tych native odpowiednio
+[ ] nazwy
+[ ] makefile budujące/instalujące
+[ ] makefile budujące rozszerzenia
+[ ] wprowadzić nowe pliki na miejsca/instalować
+[ ] konta na chrome/mozilla żeby móc oficjalnie wgrywać je
+[ ] obsługa chrome
