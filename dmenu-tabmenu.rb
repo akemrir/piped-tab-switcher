@@ -5,7 +5,7 @@ require 'json'
 # $stdout.sync = true
 
 def alert(message)
-  `dunstify rubyface '#{message}'`
+  `dunstify dmenu-tabmenu '#{message}'`
 end
 
 class Tab

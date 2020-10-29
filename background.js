@@ -1,5 +1,5 @@
-// var port = browser.runtime.connectNative("bash_interface");
-var port = browser.runtime.connectNative("ruby_interface");
+// var port = browser.runtime.connectNative("bash_debug_interface");
+var port = browser.runtime.connectNative("dmenu_tabmenu_interface");
 
 port.onMessage.addListener((response) => {
   console.log("Received: ", response);

@@ -3,11 +3,11 @@
 mkdir -p $HOME/.mozilla/native-messaging-hosts/
 (cat <<EOF
 {
-  "name": "ruby_interface",
+  "name": "dmenu_tabmenu_interface",
   "description": "Native backend for dmenu tab switcher.",
-  "path": "`pwd`/rubyface.rb",
+  "path": "`pwd`/dmenu-tabmenu.rb",
   "type": "stdio",
   "allowed_extensions": [ "@rofi.tab.switcher" ]
 }
 EOF
-) > $HOME/.mozilla/native-messaging-hosts/ruby_interface.json
+) > $HOME/.mozilla/native-messaging-hosts/dmenu_tabmenu_interface.json

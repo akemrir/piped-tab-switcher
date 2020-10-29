@@ -6,4 +6,4 @@
 
 dunstify bashface 'odpalam'
 
-tee messages.dump | ./rubyface.rb 2>> rubyface.out
+tee tabmenu-messages.dump | ./dmenu-tabmenu.rb 2>> dmenu-tabmenu.out
