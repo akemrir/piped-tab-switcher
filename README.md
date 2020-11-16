@@ -1,5 +1,7 @@
 # piped-tab-switcher
 
+Addon shortcut ctrl+comma.
+
 Only Linux is supported.
 
 # Requirements:
