@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "rofi tab switcher",
+  "name": "piped tab switcher",
   "version": "1.0",
 
-  "description": "Switch between tabs using rofi.",
+  "description": "Switch between tabs using piped application.",
 
   "commands": {
     "switch-tab": {
@@ -21,7 +21,7 @@
 
   "applications": {
     "gecko": {
-      "id": "@rofi.tab.switcher"
+      "id": "@piped.tab.switcher"
     }
   }
 }

@@ -1,5 +1,5 @@
-// var port = browser.runtime.connectNative("bash_debug_interface");
-var port = browser.runtime.connectNative("dmenu_tabmenu_interface");
+// var port = browser.runtime.connectNative("piped_tab_switcher_bash_debug");
+var port = browser.runtime.connectNative("piped_tab_switcher");
 
 port.onMessage.addListener((response) => {
   console.log("Received: ", response);

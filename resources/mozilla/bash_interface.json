@@ -1,7 +1,0 @@
-{
-  "name": "bash_debug_interface",
-  "description": "Native backend for rofi tab switcher.",
-  "path": "/home/akemrir/build/manual/rofi-tab-switcher/dmenu-tabmenu-debug.sh",
-  "type": "stdio",
-  "allowed_extensions": [ "@rofi.tab.switcher" ]
-}

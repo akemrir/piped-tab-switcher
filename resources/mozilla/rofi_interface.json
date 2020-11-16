@@ -1,7 +1,0 @@
-{
-  "name": "rofi_interface",
-  "description": "Native backend for rofi tab switcher.",
-  "path": "/home/akemrir/build/manual/rofi-tab-switcher/rofiface.py",
-  "type": "stdio",
-  "allowed_extensions": [ "@rofi.tab.switcher" ]
-}

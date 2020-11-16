@@ -6,4 +6,4 @@
 
 dunstify bashface 'odpalam'
 
-tee tabmenu-messages.dump | ./dmenu-tabmenu.rb 2>> dmenu-tabmenu.out
+tee piped-tabmenu-messages.dump | ./piped-tabmenu.rb 2>> piped-tabmenu.out

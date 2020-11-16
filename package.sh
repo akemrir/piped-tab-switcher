@@ -1,3 +1,3 @@
 #!/bin/bash
 
-zip -r rofitabswitcher.xpi *.js icons *.json 
+zip -r pipedtabswitcher.xpi *.js icons *.json
