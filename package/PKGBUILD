@@ -1,0 +1,21 @@
+# Maintainer: Karol J-G <akemrir@gmail.com>
+
+pkgname=firefox-piped-tab-switcher
+pkgver=1.0.0
+pkgrel=1
+pkgdesc='Pipe browser tabs into dmenu/rofi'
+url=https://github.com/akemrir/piped-tab-switcher
+arch=('any')
+license=('MIT')
+groups=('firefox-addons')
+conflicts=('firefox-extension-piped-tab-switcher')
+replaces=('firefox-extension-piped-tab-switcher')
+source=("file://./piped_tab_switcher-1.0-fx.xpi")
+noextract=("${source##*/}")
+sha256sums=('457642e021578fe7b86eac9298d41d310a64b60d28c11364f52b29d8d74a49a2')
+
+package() {
+  install -Dm644 "${source##*/}" "$pkgdir"/usr/lib/firefox/browser/extensions/@piped.tab.switcher.xpi
+}
+
+# vim:set ts=2 sw=2 et:
