@@ -12,6 +12,8 @@ Only Linux is supported.
 To install, clone into an appropriate, non-temporary folder and run `install-native.sh` to
 set up the manifest for the native backend.
 
+install-native accepts -t flag to indicate other directory to install native scripts, for example archlive skel directory
+
 # dev tests
 Firefox addon dev installation
 - about:debugging

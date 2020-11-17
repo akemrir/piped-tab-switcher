@@ -1,6 +1,17 @@
 #!/bin/bash
+
+TARGET=$HOME
+
+while getopts "t:" opt; do
+  case $opt in
+    t) TARGET=$OPTARG ;;
+  esac
+done
+
+echo "Instaluję w $TARGET"
+
 # firefox
-firefox_target=$HOME/.mozilla/native-messaging-hosts
+firefox_target=$TARGET/.mozilla/native-messaging-hosts
 
 mkdir -p $firefox_target
 (cat <<EOF
@@ -25,7 +36,7 @@ EOF
 ) > $firefox_target/piped_tab_switcher_bash_debug.json
 
 # chromium
-chromium_target=$HOME/.config/chromium/NativeMessagingHosts
+chromium_target=$TARGET/.config/chromium/NativeMessagingHosts
 
 mkdir -p $chromium_target
 (cat <<EOF
