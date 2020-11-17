@@ -1,14 +1,16 @@
 #!/bin/bash
 
 TARGET=$HOME
+PWD=$(pwd)
 
-while getopts "t:" opt; do
+while getopts "t:p:" opt; do
   case $opt in
     t) TARGET=$OPTARG ;;
+    p) PWD=$OPTARG ;;
   esac
 done
 
-echo "Instaluję w $TARGET"
+echo "Instaluję w $TARGET z $PWD"
 
 # firefox
 firefox_target=$TARGET/.mozilla/native-messaging-hosts
@@ -18,7 +20,7 @@ mkdir -p $firefox_target
 {
   "name": "piped_tab_switcher",
   "description": "Native backend for piped tab switcher.",
-  "path": "`pwd`/piped-tabmenu.rb",
+  "path": "$PWD/piped-tabmenu.rb",
   "type": "stdio",
   "allowed_extensions": [ "@piped.tab.switcher" ]
 }
@@ -28,7 +30,7 @@ EOF
 {
   "name": "piped_tab_switcher_bash_debug",
   "description": "Native backend for piped tab switcher with messages debugging",
-  "path": "`pwd`/piped-tabmenu-debug.sh",
+  "path": "$PWD/piped-tabmenu-debug.sh",
   "type": "stdio",
   "allowed_extensions": [ "@piped.tab.switcher" ]
 }
@@ -43,7 +45,7 @@ mkdir -p $chromium_target
 {
   "name": "piped_tab_switcher",
   "description": "Native backend for piped tab switcher.",
-  "path": "`pwd`/piped-tabmenu.rb",
+  "path": "$PWD/piped-tabmenu.rb",
   "type": "stdio",
   "allowed_extensions": [ "@piped.tab.switcher" ],
   "allowed_origins": [
@@ -56,7 +58,7 @@ EOF
 {
   "name": "piped_tab_switcher_bash_debug",
   "description": "Native backend for piped tab switcher with messages debugging",
-  "path": "`pwd`/piped-tabmenu-debug.sh",
+  "path": "$PWD/piped-tabmenu-debug.sh",
   "type": "stdio",
   "allowed_extensions": [ "@piped.tab.switcher" ],
   "allowed_origins": [

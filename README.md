@@ -12,7 +12,8 @@ Only Linux is supported.
 To install, clone into an appropriate, non-temporary folder and run `install-native.sh` to
 set up the manifest for the native backend.
 
-install-native accepts -t flag to indicate other directory to install native scripts, for example archlive skel directory
+install-native accepts -t and -p flag to indicate other directory to install native scripts, for example archlive skel directory
+install-native.sh -t ~/build/archlive/airootfs/etc/skel -p /home/deploy
 
 # dev tests
 Firefox addon dev installation
