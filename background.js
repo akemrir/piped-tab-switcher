@@ -2,7 +2,7 @@
 var port = browser.runtime.connectNative("piped_tab_switcher");
 
 port.onMessage.addListener((response) => {
-  console.log("Received: ", response);
+  // console.log("Received: ", response);
   if (response != "") {
     browser.tabs.get(parseInt(response.id)).then(raiseTab, onError);
   }
@@ -41,12 +41,11 @@ const getTabMenu = () => {
 
 function raiseTab(tab) {
   browser.tabs.update(tab.id, { active: true });
-  browser.windows.update(tab.windowId, { focused: true });
+  // browser.windows.update(tab.windowId, { focused: true });
 }
 
 function sendTabList(tabs) {
   browser.windows.getCurrent().then(function (win) {
-
     var tabdata = tabs.map((t) => {
       return {
         id: t.id,
@@ -55,17 +54,17 @@ function sendTabList(tabs) {
         url: t.url,
         active: t.active
       };
-    });
+    }).filter(t => t.windowId != win.id);
     var data = { tabs: tabdata };
-    console.log({ data });
+    // console.log({ data, win });
     port.postMessage(data);
   });
 }
 
 browser.commands.onCommand.addListener(function (command) {
   if (command == "switch-tab") {
-    console.log("Querying tabs");
+    // console.log("Querying tabs");
     browser.tabs.query({}).then(sendTabList, onError);
-    // port.postMessage(getTabMenu());
+    port.postMessage(getTabMenu());
   }
 });
